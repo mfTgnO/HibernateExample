@@ -2,11 +2,9 @@ package com.ch1.hibernate.util;
 
 import com.ch1.hibernate.model.Employee1;
 import org.hibernate.SessionFactory;
-import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.service.ServiceRegistry;
 
 import java.util.Properties;
 
@@ -24,7 +22,7 @@ public class HibernateUtil {
     private static SessionFactory buildSessionFactory() {
         try {
             // Create the SessionFactory from hibernate.cfg.xml
-            /*Configuration configuration = new Configuration();
+            Configuration configuration = new Configuration();
             configuration.configure("hibernate.cfg.xml");
             System.out.println("Hibernate Configuration loaded");
 
@@ -33,11 +31,9 @@ public class HibernateUtil {
 
             SessionFactory sessionFactory = configuration.buildSessionFactory(serviceRegistry);
 
-            return sessionFactory;*/
-
             // 上面的代码在Hibernate5.x以下是可以运行的;但是在Hibernate5.x以后，必须写成如下的形式：
-            ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().configure().build();
-            SessionFactory sessionFactory = new MetadataSources(serviceRegistry).buildMetadata().buildSessionFactory();
+            /*ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().configure().build();
+            SessionFactory sessionFactory = new MetadataSources(serviceRegistry).buildMetadata().buildSessionFactory();*/
             return sessionFactory;
         } catch (Throwable ex) {
             // Make sure you log the exception, as it might be swallowed
@@ -57,6 +53,11 @@ public class HibernateUtil {
             System.out.println("Hibernate Annotation serviceRegistry created");
 
             SessionFactory sessionFactory = configuration.buildSessionFactory(serviceRegistry);
+
+            // 上面的代码在Hibernate5.x以下是可以运行的;但是在Hibernate5.x以后，必须写成如下的形式：
+            /*ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().configure().build();
+            SessionFactory sessionFactory = new MetadataSources(serviceRegistry).buildMetadata().buildSessionFactory();*/
+
             return sessionFactory;
         } catch (Throwable ex) {
             // Make sure you log the exception, as it might be swallowed
@@ -72,8 +73,8 @@ public class HibernateUtil {
             //Create Properties, can be read from property files too
             Properties props = new Properties();
             props.put("hibernate.connection.driver_class", "com.mysql.jdbc.Driver");
-            props.put("hibernate.connection.url", "jdbc:mysql://localhost/test");
-            props.put("hibernate.connection.username", "rooot");
+            props.put("hibernate.connection.url", "jdbc:mysql://localhost/test?serverTimezone=GMT%2B8");
+            props.put("hibernate.connection.username", "root");
             props.put("hibernate.connection.password", "root");
             props.put("hibernate.current_session_context_class", "thread");
 
