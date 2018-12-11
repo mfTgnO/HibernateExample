@@ -5,8 +5,14 @@
 <hibernate-configuration>
     <session-factory>
         <!-- Database connection properties - Driver, URL, user, password -->
-        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost/test</property>
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <!--<property name="hibernate.connection.url">jdbc:mysql://localhost/test</property>-->
+        <!--<property name="hibernate.connection.url">jdbc:mysql://localhost/test?serverTimezone=UTC</property>-->
+        <!--
+            mysql-connector-java 6.x 时区设置
+            http://www.mamicode.com/info-detail-2013798.html
+        -->
+        <property name="hibernate.connection.url">jdbc:mysql://localhost/test?serverTimezone=GMT%2B8</property>
         <property name="hibernate.connection.password">root</property>
         <property name="hibernate.connection.username">root</property>
         <!-- Connection Pool Size -->
