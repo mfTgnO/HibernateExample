@@ -30,11 +30,11 @@
             <version>4.3.5.Final</version>
         </dependency>
         <!-- Hibernate 4 uses Jboss logging, but older versions slf4j for logging -->
-        <dependency>
+        <!--<dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
             <version>1.8.0-beta2</version>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
