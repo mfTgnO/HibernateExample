@@ -6,7 +6,7 @@ import org.hibernate.annotations.Cascade;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "EMPLOYEE_BENEFITS")
+@Table(name = "employee_benefits")
 public class EmployeeBenefits {
 
     @Id

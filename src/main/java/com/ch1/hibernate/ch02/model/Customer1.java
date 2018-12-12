@@ -5,7 +5,7 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "CUSTOMER")
+@Table(name = "customer")
 public class Customer1 {
     @Id
     @Column(name = "txn_id", unique = true, nullable = false)

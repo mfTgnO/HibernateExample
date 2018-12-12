@@ -23,13 +23,13 @@ public class HQLExamples {
 //        test1(session);
 //        test2(session);
 //        test3(session);
-        test4(session);
+//        test4(session);
 //        test5(session);
 //        test6(session);
 //        test7(session);
 //        test8(session);
 //        test9(session);
-//        test10(session);
+        test10(session);
 
         //rolling back to save the test data
         tx.rollback();

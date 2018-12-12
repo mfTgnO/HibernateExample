@@ -2,7 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="com.ch1.hibernate.ch03.model">
-    <class name="Cart" table="CART">
+    <class name="Cart" table="cart">
         <id name="id" type="long">
             <column name="cart_id"/>
             <generator class="identity"/>

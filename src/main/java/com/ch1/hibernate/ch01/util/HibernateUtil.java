@@ -73,7 +73,7 @@ public class HibernateUtil {
             //Create Properties, can be read from property files too
             Properties props = new Properties();
             props.put("hibernate.connection.driver_class", "com.mysql.jdbc.Driver");
-            props.put("hibernate.connection.url", "jdbc:mysql://localhost/test?serverTimezone=GMT%2B8");
+            props.put("hibernate.connection.url", "jdbc:mysql://localhost/menagerie?serverTimezone=GMT%2B8");
             props.put("hibernate.connection.username", "root");
             props.put("hibernate.connection.password", "root");
             props.put("hibernate.current_session_context_class", "thread");

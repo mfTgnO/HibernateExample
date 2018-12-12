@@ -4,17 +4,17 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "Employee", uniqueConstraints = {@UniqueConstraint(columnNames = {"ID"})})
+@Table(name = "employee", uniqueConstraints = {@UniqueConstraint(columnNames = {"id"})})
 public class Employee1 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID", nullable = false, unique = true, length = 11)
+    @Column(name = "id", nullable = false, unique = true, length = 11)
     private int id;
 
-    @Column(name = "NAME", length = 20, nullable = true)
+    @Column(name = "name", length = 20, nullable = true)
     private String name;
 
-    @Column(name = "ROLE", length = 20, nullable = true)
+    @Column(name = "role", length = 20, nullable = true)
     private String role;
 
     @Column(name = "insert_time", nullable = true)

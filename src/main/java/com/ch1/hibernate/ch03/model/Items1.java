@@ -3,7 +3,7 @@ package com.ch1.hibernate.ch03.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "ITEMS")
+@Table(name = "items")
 public class Items1 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
