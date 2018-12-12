@@ -1,23 +1,11 @@
-package com.ch1.hibernate.model;
+package com.ch1.hibernate.ch01.model;
 
-import javax.persistence.*;
 import java.util.Date;
 
-@Entity
-@Table(name = "Employee", uniqueConstraints = {@UniqueConstraint(columnNames = {"ID"})})
-public class Employee1 {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID", nullable = false, unique = true, length = 11)
+public class Employee {
     private int id;
-
-    @Column(name = "NAME", length = 20, nullable = true)
     private String name;
-
-    @Column(name = "ROLE", length = 20, nullable = true)
     private String role;
-
-    @Column(name = "insert_time", nullable = true)
     private Date insertTime;
 
     public int getId() {

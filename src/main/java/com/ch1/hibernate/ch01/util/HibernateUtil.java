@@ -1,6 +1,6 @@
-package com.ch1.hibernate.util;
+package com.ch1.hibernate.ch01.util;
 
-import com.ch1.hibernate.model.Employee1;
+import com.ch1.hibernate.ch01.model.Employee1;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;

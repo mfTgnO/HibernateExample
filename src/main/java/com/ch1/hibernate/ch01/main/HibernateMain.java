@@ -1,7 +1,7 @@
-package com.ch1.hibernate.main;
+package com.ch1.hibernate.ch01.main;
 
-import com.ch1.hibernate.model.Employee;
-import com.ch1.hibernate.util.HibernateUtil;
+import com.ch1.hibernate.ch01.model.Employee;
+import com.ch1.hibernate.ch01.util.HibernateUtil;
 import org.hibernate.Session;
 
 import java.util.Date;

@@ -13,6 +13,6 @@
         <!-- org.hibernate.HibernateException: No CurrentSessionContext configured! -->
         <property name="hibernate.current_session_context_class">thread</property>
         <!-- Mapping with model class containing annotations -->
-        <mapping class="com.ch1.hibernate.model.Employee1"/>
+        <mapping class="com.ch1.hibernate.ch01.model.Employee1"/>
     </session-factory>
 </hibernate-configuration>

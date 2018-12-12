@@ -11,6 +11,9 @@
         <!--
             mysql-connector-java 6.x 时区设置
             http://www.mamicode.com/info-detail-2013798.html
+
+            ?serverTimezone=GMT%2B8
+            ?serverTimezone=UTC
         -->
         <property name="hibernate.connection.url">jdbc:mysql://localhost/test?serverTimezone=GMT%2B8</property>
         <property name="hibernate.connection.password">root</property>
@@ -26,5 +29,7 @@
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <!-- mapping file, we can use Bean annotations too -->
         <mapping resource="employee.hbm.xml"/>
+        <mapping resource="txn.hbm.xml"/>
+        <mapping resource="customer.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>
