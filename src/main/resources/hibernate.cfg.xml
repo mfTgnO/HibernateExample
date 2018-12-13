@@ -15,8 +15,8 @@
             ?serverTimezone=GMT%2B8
             ?serverTimezone=UTC
         -->
-        <!--<property name="hibernate.connection.url">jdbc:mysql://localhost/test?serverTimezone=GMT%2B8</property>-->
-        <property name="hibernate.connection.url">jdbc:mysql://localhost/menagerie?serverTimezone=GMT%2B8</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost/test?serverTimezone=GMT%2B8</property>
+        <!--<property name="hibernate.connection.url">jdbc:mysql://localhost/menagerie?serverTimezone=GMT%2B8</property>-->
         <property name="hibernate.connection.password">root</property>
         <property name="hibernate.connection.username">root</property>
         <!-- Connection Pool Size -->
@@ -34,5 +34,8 @@
         <mapping resource="customer.hbm.xml"/>
         <mapping resource="items.hbm.xml"/>
         <mapping resource="cart.hbm.xml"/>
+
+        <mapping resource="cartMany.hbm.xml"/>
+        <mapping resource="ItemMany.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>

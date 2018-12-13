@@ -8,8 +8,8 @@
         <!-- Database connection properties - Driver, URL, user, password -->
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
         <!--<property name="hibernate.connection.url">jdbc:mysql:://localhost/test</property>-->
-        <!--<property name="hibernate.connection.url">jdbc:mysql://localhost/test?serverTimezone=GMT%2B8</property>-->
-        <property name="hibernate.connection.url">jdbc:mysql://localhost/menagerie?serverTimezone=GMT%2B8</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost/test?serverTimezone=GMT%2B8</property>
+        <!--<property name="hibernate.connection.url">jdbc:mysql://localhost/menagerie?serverTimezone=GMT%2B8</property>-->
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password">root</property>
         <!-- org.hibernate.HibernateException: No CurrentSessionContext configured! -->
@@ -26,5 +26,8 @@
 
         <mapping class="com.ch1.hibernate.ch05.model.EmployeeBenefits"/>
         <mapping class="com.ch1.hibernate.ch05.model.Address"/>
+
+        <mapping class="com.ch1.hibernate.ch04.model.CartMany1"/>
+        <mapping class="com.ch1.hibernate.ch04.model.ItemMany1"/>
     </session-factory>
 </hibernate-configuration>

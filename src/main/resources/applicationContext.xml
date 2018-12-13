@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--<bean id="MyXMLApp" class="com.ch1.spring.springcore.ch02.consumer.MyXMLApplication">
+        <constructor-arg>
+            <bean class="com.ch1.spring.springcore.ch02.services.TwitterService"/>
+        </constructor-arg>
+    </bean>-->
+    <bean id="twitter" class="com.ch1.spring.springcore.ch02.services.TwitterService"/>
+    <bean id="MyXMLApp" class="com.ch1.spring.springcore.ch02.consumer.MyXMLApplication">
+        <property name="service" ref="twitter"/>
+    </bean>
+</beans>

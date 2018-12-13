@@ -76,3 +76,30 @@ VALUES
 	(4, 'City Centre', '100100', 'New Delhi');
 
 COMMIT;
+
+CREATE TABLE IF NOT EXISTS `cart_many` (
+  `cart_id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `cart_total` DECIMAL(10,0) NOT NULL,
+  PRIMARY KEY (`cart_id`)
+) ENGINE=INNODB AUTO_INCREMENT=1 CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `item_many` (
+  `item_id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `item_desc` VARCHAR(20) NOT NULL,
+  `item_price` DECIMAL(10,0) NOT NULL,
+  PRIMARY KEY (`item_id`)
+) ENGINE=INNODB CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `cart_items` (
+  `cart_id` INT(11) UNSIGNED NOT NULL,
+  `item_id` INT(11) UNSIGNED NOT NULL,
+  PRIMARY KEY (`cart_id`,`item_id`),
+  CONSTRAINT `fk_cart` FOREIGN KEY (`cart_id`) REFERENCES `cart_many` (`cart_id`),
+  CONSTRAINT `fk_item` FOREIGN KEY (`item_id`) REFERENCES `item_many` (`item_id`)
+) ENGINE=INNODB CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+SET FOREIGN_KEY_CHECKS = 0;
+TRUNCATE TABLE `cart_many`;
+TRUNCATE TABLE `item_many`;
+TRUNCATE TABLE `cart_items`;
+SET FOREIGN_KEY_CHECKS = 1;

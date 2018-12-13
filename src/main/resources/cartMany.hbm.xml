@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.ch1.hibernate.ch04.model">
+    <class name="CartMany" table="cart_many">
+        <id name="id" type="long">
+            <column name="cart_id"/>
+            <generator class="identity"/>
+        </id>
+        <property name="total" type="double" column="cart_total"/>
+        <set name="itemManies" table="cart_items" fetch="select" cascade="all">
+            <key column="cart_id"/>
+            <many-to-many class="ItemMany" column="item_id"/>
+        </set>
+    </class>
+</hibernate-mapping>
