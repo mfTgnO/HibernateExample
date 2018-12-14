@@ -1,0 +1,32 @@
+package com.ch1.spring.springcore.ch06.service;
+
+import com.ch1.spring.springcore.ch06.bean.Employee;
+
+public class MyEmployeeService {
+    private Employee employee;
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
+
+    public MyEmployeeService() {
+        System.out.println("MyEmployeeService no-args constructor called");
+    }
+
+    //pre-destroy method
+    public void destroy() throws Exception {
+        System.out.println("MyEmployeeService Closing resources");
+    }
+
+    //post-init method
+    public void init() throws Exception {
+        System.out.println("MyEmployeeService initializing to dummy value");
+        if (employee.getName() == null) {
+            employee.setName("Pankaj");
+        }
+    }
+}

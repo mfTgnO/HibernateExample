@@ -1,22 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:aop="http://www.springframework.org/schema/aop"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
-		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd"
+
+       default-autowire="byName" default-autowire-candidates="*">
 
     <!-- Enable AspectJ style of Spring AOP -->
-    <aop:aspectj-autoproxy/>
+    <!--<aop:aspectj-autoproxy/>
 
-    <!-- Configure Employee Bean and initialize it -->
+    &lt;!&ndash; Configure Employee Bean and initialize it &ndash;&gt;
     <bean name="employee" class="com.ch1.spring.springcore.ch03.model.Employee">
         <property name="name" value="Dummy Name"/>
     </bean>
 
-    <!-- Configure EmployeeService bean -->
+    &lt;!&ndash; Configure EmployeeService bean &ndash;&gt;
     <bean name="employeeService" class="com.ch1.spring.springcore.ch03.service.EmployeeService">
         <property name="employee" ref="employee"/>
     </bean>
 
-    <!-- Configure Aspect Beans, without this Aspects advices wont execute -->
+    &lt;!&ndash; Configure Aspect Beans, without this Aspects advices wont execute &ndash;&gt;
+    <bean name="employeeXMLConfigAspect" class="com.ch1.spring.springcore.ch03.aspect.EmployeeXMLConfigAspect"/>
+    &lt;!&ndash; Spring AOP XML Configuration &ndash;&gt;
+    <aop:config>
+        <aop:aspect ref="employeeXMLConfigAspect" id="employeeXMLConfigAspectID" order="1">
+            <aop:pointcut id="getNamePointCut"
+                          expression="execution(* com.ch1.spring.springcore.ch03.model.Employee.getName())"/>
+            <aop:around method="employeeAroundAdvice" pointcut-ref="getNamePointCut" arg-names="proceedingJoinPoint"/>
+        </aop:aspect>
+    </aop:config>-->
+
+    <!--ch05:Spring Bean Autowiring Example-->
+    <!--<bean name="employee" class="com.ch1.spring.springcore.ch05.model.Employee">
+        <property name="name" value="Pankaj"/>
+    </bean>
+
+    &lt;!&ndash;<bean name="employee" class="com.ch1.spring.springcore.ch05.model.Employee" autowire-candidate="false">
+        <property name="name" value="Dummy Name"/>
+    </bean>&ndash;&gt;
+
+    &lt;!&ndash; autowiring byName, bean name should be same as the property name &ndash;&gt;
+    <bean name="employeeServiceByName" class="com.ch1.spring.springcore.ch05.service.EmployeeService"
+          autowire="byName"/>
+    &lt;!&ndash; autowiring byType, there should be only one bean definition for the mapping &ndash;&gt;
+    <bean name="employeeServiceByType" class="com.ch1.spring.springcore.ch05.service.EmployeeAutowiredByTypeService"
+          autowire="byType"/>
+    &lt;!&ndash; autowiring by constructor &ndash;&gt;
+    <bean name="employeeServiceConstructor" class="com.ch1.spring.springcore.ch05.service.EmployeeAutowiredByConstructorService"
+          autowire="constructor"/>
+
+    &lt;!&ndash; Enable Annotation based configuration &ndash;&gt;
+    <context:annotation-config/>
+
+    &lt;!&ndash; using @Autowiring annotation in below beans, byType and constructor &ndash;&gt;
+    <bean name="employeeAutowiredByTypeService"
+          class="com.ch1.spring.springcore.ch05.service.EmployeeAutowiredByTypeService"/>
+    <bean name="employeeAutowiredByConstructorService"
+          class="com.ch1.spring.springcore.ch05.service.EmployeeAutowiredByConstructorService"/>-->
+
+    <!--ch06:Spring Bean Life Cycle-->
+    <!-- Not initializing employee name variable-->
+    <!--<bean name="employee" class="com.ch1.spring.springcore.ch06.bean.Employee"/>
+    <bean name="employeeService" class="com.ch1.spring.springcore.ch06.service.EmployeeService">
+        <property name="employee" ref="employee"/>
+    </bean>
+    <bean name="myEmployeeService" class="com.ch1.spring.springcore.ch06.service.MyEmployeeService"
+          init-method="init" destroy-method="destroy">
+        <property name="employee" ref="employee"/>
+    </bean>
+    &lt;!&ndash; initializing CommonAnnotationBeanPostProcessor is same as context:annotation-config &ndash;&gt;
+    <bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/>
+    <bean name="myService" class="com.ch1.spring.springcore.ch06.service.MyService"/>-->
 </beans>
