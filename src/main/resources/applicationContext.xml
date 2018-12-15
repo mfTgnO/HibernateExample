@@ -7,8 +7,8 @@
             <bean class="com.ch1.spring.springcore.ch02.services.TwitterService"/>
         </constructor-arg>
     </bean>-->
-    <bean id="twitter" class="com.ch1.spring.springcore.ch02.services.TwitterService"/>
+    <!--<bean id="twitter" class="com.ch1.spring.springcore.ch02.services.TwitterService"/>
     <bean id="MyXMLApp" class="com.ch1.spring.springcore.ch02.consumer.MyXMLApplication">
         <property name="service" ref="twitter"/>
-    </bean>
+    </bean>-->
 </beans>
