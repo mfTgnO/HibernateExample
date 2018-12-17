@@ -34,6 +34,7 @@ public class FileUploadController {
                 byte[] bytes = file.getBytes();
                 // Creating the directory to store file
                 String rootPath = System.getProperty("catalina.home");
+                System.out.println("rootPath:" + rootPath);
                 File dir = new File(rootPath + File.separator + "tmpFiles");
                 if (!dir.exists()) {
                     dir.mkdirs();
@@ -95,13 +96,13 @@ public class FileUploadController {
         return message;
     }
 
-    @RequestMapping(value = "/test1",method = RequestMethod.GET)
-    public String test1(Locale locale, Model model){
+    @RequestMapping(value = "/test1", method = RequestMethod.GET)
+    public String test1(Locale locale, Model model) {
         return "upload";
     }
 
-    @RequestMapping(value = "/test2",method = RequestMethod.GET)
-    public String test2(Locale locale, Model model){
+    @RequestMapping(value = "/test2", method = RequestMethod.GET)
+    public String test2(Locale locale, Model model) {
         return "uploadMultiple";
     }
 }
