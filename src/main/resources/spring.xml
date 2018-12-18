@@ -70,4 +70,10 @@
     &lt;!&ndash; initializing CommonAnnotationBeanPostProcessor is same as context:annotation-config &ndash;&gt;
     <bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/>
     <bean name="myService" class="com.ch1.spring.springcore.ch06.service.MyService"/>-->
+
+    <!--ch11:Spring MVC Form Validation Example-->
+
+
+    <!--ch12:Spring MVC Exception Handling-->
+
 </beans>

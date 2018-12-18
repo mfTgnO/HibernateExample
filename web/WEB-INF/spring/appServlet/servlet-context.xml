@@ -38,16 +38,17 @@
     <!-- Configure bean to convert JSON to POJO and vice versa -->
     <beans:bean id="jsonMessageConverter"
                 class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
-    <context:component-scan base-package="com.ch1.spring.springmvc.ch08.controller"/>
+    <!--<context:component-scan base-package="com.ch1.spring.springmvc.ch08.controller"/>
     <beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-        <!-- setting maximum upload size -->
+        &lt;!&ndash; setting maximum upload size &ndash;&gt;
         <beans:property name="maxUploadSize" value="102400000"/>
-    </beans:bean>
-    <context:component-scan base-package="com.ch1.spring.springmvc.ch09.controller"/>
+    </beans:bean>-->
 
+    <!--<context:component-scan base-package="com.ch1.spring.springmvc.ch09.controller"/>-->
     <!--ch10:Spring MVC Internationalization and Localization Example-->
     <beans:bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
-        <beans:property name="basename" value="classpath:messages"/>
+        <beans:property name="basename" value="classpath:/messages"/>
+        <!--<beans:property name="basename" value="classpath:resources"/>-->
         <beans:property name="defaultEncoding" value="UTF-8"/>
     </beans:bean>
     <beans:bean id="localeResolver" class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
@@ -60,7 +61,32 @@
             <beans:property name="paramName" value="locale"/>
         </beans:bean>
     </interceptors>
-    <context:component-scan base-package="com.ch1.spring.springmvc.ch10.controller"/>
+    <!--<context:component-scan base-package="com.ch1.spring.springmvc.ch10.controller"/>-->
 
     <!--ch11:Spring MVC Form Validation Example-->
+    <!--<context:component-scan base-package="com.ch1.spring.springmvc.ch11.controller"/>-->
+    <beans:bean id="employeeValidator" class="com.ch1.spring.springmvc.ch11.validator.EmployeeFormValidator"/>
+
+    <!--ch12:Spring MVC Exception Handling-->
+    <beans:bean id="simpleMappingExceptionResolver" class="com.ch1.spring.springmvc.ch12.resolver.MySimpleMappingExceptionResolver">
+        <beans:property name="exceptionMappings">
+            <beans:map>
+                <beans:entry key="Exception" value="generic_error"/>
+            </beans:map>
+        </beans:property>
+        <beans:property name="defaultErrorView" value="generic_error"/>
+    </beans:bean>
+
+    <!--<context:component-scan base-package="com.ch1.spring.springmvc.ch12.controller"/>-->
+
+    <!--com.ch1.spring.springmvc.ch13.Interceptor-->
+    <!-- Configuring interceptors based on URI -->
+    <interceptors>
+        <interceptor>
+            <mapping path="/home_ch13"/>
+            <beans:bean class="com.ch1.spring.springmvc.ch13.Interceptor.RequestProcessingTimeInterceptor"/>
+        </interceptor>
+    </interceptors>
+
+    <context:component-scan base-package="com.ch1.spring.springmvc.ch13.Controller"/>
 </beans:beans>

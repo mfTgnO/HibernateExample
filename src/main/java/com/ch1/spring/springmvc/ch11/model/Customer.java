@@ -1,5 +1,6 @@
 package com.ch1.spring.springmvc.ch11.model;
 
+import com.ch1.spring.springmvc.ch11.validator.Phone;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.*;
@@ -26,6 +27,7 @@ public class Customer {
     @Past
     private Date birthday;
 
+    @Phone
     private String phone;
 
     public enum Gender {

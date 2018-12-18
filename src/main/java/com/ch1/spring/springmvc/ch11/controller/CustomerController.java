@@ -19,7 +19,7 @@ public class CustomerController {
 
     private Map<String, Customer> customers = null;
 
-    public CustomerController(Map<String, Customer> customers) {
+    public CustomerController() {
         this.customers = new HashMap<>();
     }
 
