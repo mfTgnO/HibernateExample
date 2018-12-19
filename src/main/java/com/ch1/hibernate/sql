@@ -1,5 +1,5 @@
--- Create Employee Table
-CREATE TABLE IF NOT EXISTS `Employee` (
+-- Create employee Table
+CREATE TABLE IF NOT EXISTS `employee` (
   `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(20) DEFAULT NULL,
   `role` VARCHAR(20) DEFAULT NULL,
@@ -7,32 +7,32 @@ CREATE TABLE IF NOT EXISTS `Employee` (
   PRIMARY KEY (`id`)
 ) ENGINE=INNODB AUTO_INCREMENT=19 CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
--- Create Transaction Table
-CREATE TABLE IF NOT EXISTS `Transaction` (
+-- Create transaction Table
+CREATE TABLE IF NOT EXISTS `transaction` (
   `txn_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `txn_date` date NOT NULL,
   `txn_total` decimal(10,0) NOT NULL,
   PRIMARY KEY (`txn_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
--- Create Customer table
-CREATE TABLE IF NOT EXISTS `Customer` (
+-- Create customer table
+CREATE TABLE IF NOT EXISTS `customer` (
   `txn_id` int(11) unsigned NOT NULL,
   `cust_name` varchar(20) NOT NULL DEFAULT '',
   `cust_email` varchar(20) DEFAULT NULL,
   `cust_address` varchar(50) NOT NULL DEFAULT '',
   PRIMARY KEY (`txn_id`),
-  CONSTRAINT `customer_ibfk_1` FOREIGN KEY (`txn_id`) REFERENCES `Transaction` (`txn_id`)
+  CONSTRAINT `customer_ibfk_1` FOREIGN KEY (`txn_id`) REFERENCES `transaction` (`txn_id`)
 ) ENGINE=InnoDB CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
-CREATE TABLE IF NOT EXISTS `Cart` (
+CREATE TABLE IF NOT EXISTS `cart` (
   `cart_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `total` decimal(10,0) NOT NULL,
   `name` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`cart_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
-CREATE TABLE IF NOT EXISTS `Items` (
+CREATE TABLE IF NOT EXISTS `items` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `cart_id` int(11) unsigned NOT NULL,
   `item_id` varchar(10) NOT NULL,
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `Items` (
   `quantity` int(3) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `cart_id` (`cart_id`),
-  CONSTRAINT `items_ibfk_1` FOREIGN KEY (`cart_id`) REFERENCES `Cart` (`cart_id`)
+  CONSTRAINT `items_ibfk_1` FOREIGN KEY (`cart_id`) REFERENCES `cart` (`cart_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- ch05:Hibernate Query Language (HQL)

@@ -73,7 +73,20 @@
 
     <!--ch11:Spring MVC Form Validation Example-->
 
-
     <!--ch12:Spring MVC Exception Handling-->
 
+    <!--ch15:Spring JDBC and JdbcTemplate CRUD with DataSource Example-->
+    <!--<bean id="employeeDAO" class="com.ch1.spring.springjdbc.ch15.dao.impl.EmployeeDAOImpl">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+    <bean id="employeeDAOJDBCTemplate" class="com.ch1.spring.springjdbc.ch15.dao.impl.EmployeeDAOJDBCTemplateImpl">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>-->
+    <!--<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        &lt;!&ndash;<property name="driverClassName" value="com.mysql.jdbc.Driver"/>&ndash;&gt;&lt;!&ndash;This is deprecated.&ndash;&gt;
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/test?serverTimezone=GMT%2B8"/>
+        <property name="username" value="root"/>
+        <property name="password" value="root"/>
+    </bean>-->
 </beans>
