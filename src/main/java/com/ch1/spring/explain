@@ -19,3 +19,7 @@ ch14:Spring MVC RequestMapping Example
 Spring JDBC Tutorial
 ch15:Spring JDBC and JdbcTemplate CRUD with DataSource Example
 ch16:Spring DataSource JNDI with Tomcat Example
+ch17:Spring Transaction Management Example with JDBC
+
+Spring Hibernate Tutorial
+ch18:Spring Hibernate Integration Example

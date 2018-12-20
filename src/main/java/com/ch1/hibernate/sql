@@ -103,3 +103,24 @@ TRUNCATE TABLE `cart_many`;
 TRUNCATE TABLE `item_many`;
 TRUNCATE TABLE `cart_items`;
 SET FOREIGN_KEY_CHECKS = 1;
+
+CREATE TABLE IF NOT EXISTS `customer_ch17` (
+  `id` int(11) unsigned NOT NULL,
+  `name` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=INNODB CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `address_ch17` (
+  `id` int(11) unsigned NOT NULL,
+  `address` varchar(20) DEFAULT NULL,
+  `country` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=INNODB CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE TABLE `person` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(20) NOT NULL DEFAULT '',
+  `country` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=INNODB AUTO_INCREMENT=1 CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+commit;

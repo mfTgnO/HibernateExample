@@ -9,6 +9,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.sql.DataSource;
 import java.util.ArrayList;
@@ -17,12 +18,34 @@ import java.util.Map;
 
 /**
  * Handles requests for the Employee JDBC Service.
+ * 在apache-tomcat-9.0.10\conf\server.xml文件中的<GlobalNamingResources>元素中添加配置信息：
+ *          <Resource
+ *               name="jdbc/test"
+ *               global="jdbc/test"
+ *               auth="Container"
+ *               type="javax.sql.DataSource"
+ *               driverClassName="com.mysql.cj.jdbc.Driver"
+ *               url="jdbc:mysql://localhost:3306/test?serverTimezone=GMT%2B8"
+ *               username="root"
+ *               password="root"
+ *
+ *               maxActive="100"
+ *               maxIdle="20"
+ *               minIdle="5"
+ *               maxWait="10000"/>
+ * 在apache-tomcat-9.0.10\conf\context.xml文件中的<Context>元素中添加配置信息：
+ *          <ResourceLink name="jdbc/MyLocalDB"
+ *                 global="jdbc/test"
+ *                 auth="Container"
+ *                 type="javax.sql.DataSource" />
+ *
  */
 @Controller
 public class EmployeeController {
     private static final Logger logger = LoggerFactory.getLogger(EmployeeController.class);
     @Autowired
     @Qualifier("dbDataSource")
+//    @Qualifier("mysqlDataSource")
     private DataSource dataSource;
 
     public void setDataSource(DataSource dataSource) {
@@ -30,7 +53,8 @@ public class EmployeeController {
     }
 
     @RequestMapping(value = "/rest/emps", method = RequestMethod.GET)
-    public List<Employee> getAllEmployee() {
+    public @ResponseBody
+    List<Employee> getAllEmployee() {
         logger.info("Start getAllEmployees.");
         List<Employee> empList = new ArrayList<>();
         //JDBC Code - Start

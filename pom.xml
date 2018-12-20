@@ -27,6 +27,9 @@
         <!-- AspectJ -->
         <aspectj.version>1.7.4</aspectj.version>
         <jackson.databind-version>2.2.3</jackson.databind-version>
+
+        <hibernate.version>4.3.5.Final</hibernate.version>
+        <!--<hibernate.version>3.6.9.Final</hibernate.version>-->
     </properties>
 
     <build>
@@ -53,8 +56,30 @@
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
             <!--<version>5.3.7.Final</version>-->
-            <version>4.3.5.Final</version>
+            <version>${hibernate.version}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>slf4j-api</artifactId>
+                    <groupId>org.slf4j</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>${hibernate.version}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>slf4j-api</artifactId>
+                    <groupId>org.slf4j</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!--<dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>3.1.0.GA</version>
+        </dependency>-->
         <!-- Hibernate 4 uses Jboss logging, but older versions slf4j for logging -->
         <!--<dependency>
             <groupId>org.slf4j</groupId>
@@ -98,6 +123,12 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
+            <version>${spring-framework.version}</version>
+        </dependency>
+        <!-- Spring ORM support -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
             <version>${spring-framework.version}</version>
         </dependency>
 
@@ -239,5 +270,10 @@
             <artifactId>hibernate-validator</artifactId>
             <version>6.0.13.Final</version>
         </dependency>-->
+        <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <version>1.4</version>
+        </dependency>
     </dependencies>
 </project>
