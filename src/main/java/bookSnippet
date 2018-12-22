@@ -1,0 +1,33 @@
+Setting the Scene
+Microservices are getting very popular these days. It’s not a surprise; this
+software architecture style has a lot of advantages, like flexibility and ease
+of scale. Mapping them into small teams in an organization also gives you
+a lot of efficiency in development. However, going on the adventure of
+microservices knowing only the benefits is a wrong call: you need to know
+what you are facing and be prepared for that in advance. You can get a lot
+of knowledge from many books and articles on the Internet but, when you
+get hands-on code, the story changes.
+This book covers some of the most important concepts of microservices
+in a practical way, but not without explaining the concepts. First, we define
+a use case: an application to build. Then we start with a small monolith,
+based on some sound reasoning. Once we have the minimal application in
+place, we evaluate if it’s worthy to move to microservices, and what would
+be a good way to do so. How should we communicate these different pieces?
+Then we can describe and introduce the event-driven architecture pattern
+to reach loose coupling by informing other parts of the system about what
+happened in your part of the process, instead of explicitly calling others to
+action. Once you have the microservices in place, you see in practice how
+the surrounding tools work: service discovery, routing, etc. We don’t cover all
+of them at once but include them one by one, explaining the benefits of each
+for the application. Also, we analyze what would be a good way to test the
+distributed system, end-to-end.2
+The advantage of going step-by-step, pausing when it’s needed to settle
+down the concepts, is that you will understand which problem each tool is
+trying to solve. That’s why the evolving example is an essential part of this
+book. You can also grasp the concepts without coding one single line: most
+of the source code is included so you can read it if you prefer.
+The source code included in this book is available on the GitHub repository
+https://github.com/microservices-practical. It’s divided into
+different versions, which makes it easier for you to see how the application
+evolves along the chapters. The book includes notes with the version that
+is being covered in that section.
