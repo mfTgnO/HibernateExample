@@ -82,4 +82,21 @@ public class SpringHibernateMain {
         long timeInMillis = instance.getTimeInMillis();
         System.out.println(timeInMillis);
     }
+
+    private static void test7(){
+        /*List arrayList = new ArrayList();
+
+        arrayList.add("aaaa");
+
+        arrayList.add(100);
+
+
+        for(int i = 0; i< arrayList.size();i++){
+
+            String item = (String)arrayList.get(i);
+
+            Log.d("泛型测试","item = " + item);
+
+        }*/
+    }
 }
