@@ -28,7 +28,7 @@
         <aspectj.version>1.7.4</aspectj.version>
         <jackson.databind-version>[2.9.9,)</jackson.databind-version>
 
-        <hibernate.version>4.3.5.Final</hibernate.version>
+        <hibernate.version>5.4.24.Final</hibernate.version>
         <!--<hibernate.version>3.6.9.Final</hibernate.version>-->
     </properties>
 
